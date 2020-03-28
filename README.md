@@ -41,8 +41,10 @@ $ npm run test
 
 ## Basic usage using Promise.
 
-    client = new RestClient();
-    client.request('list')
+    const NcovTrackerPH = require('./ncovtracker-ph');
+    const client = new NcovTrackerPH.RestClient();
+
+    client.request('count')
         .then(res => console.log(res))
         .catch(err => console.error(err));
 
@@ -51,8 +53,7 @@ $ npm run test
 
     (async  () => {
         try {
-            client = new RestClient();
-            res = await client.request('list');
+            res = await client.request('cases');
             console.log(res);
         }
         catch(e) {
@@ -63,7 +64,7 @@ $ npm run test
 
 ## Using preset statistics.
 
-    request('list', {
+    request('cases', {
         stats: "count_by_residence"
     })
 
