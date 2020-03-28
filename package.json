@@ -9,7 +9,6 @@
   "author": "Ariel De Castro <ariel.decastro@sharkte.tech>",
   "license": "MIT",
   "dependencies": {
-    "moment": "^2.24.0",
     "request": "^2.88.2"
   }
 }
