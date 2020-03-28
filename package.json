@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Rest client wrapper API for <ncovtracker.doh.gov.ph>",
   "main": "ncovtracker-ph.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sharketech/ncovtracker-ph.git"
+  },
   "scripts": {
     "test": "node example/tracker.js"
   },
