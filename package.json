@@ -1,0 +1,15 @@
+{
+  "name": "ncovtracker-ph",
+  "version": "1.0.0",
+  "description": "Rest client wrapper API for <ncovtracker.doh.gov.ph>",
+  "main": "ncovtracker-ph.js",
+  "scripts": {
+    "test": "node example/tracker.js"
+  },
+  "author": "Ariel De Castro <ariel.decastro@sharkte.tech>",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "request": "^2.88.2"
+  }
+}
