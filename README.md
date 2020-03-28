@@ -29,7 +29,7 @@ $ npm run test
 | ------------------| ------------ |
 | cases             | List of cases in the Philippines |
 | cases-overseas    | List of cases for Filipino in other countries |
-| cases-foreigners  | List of cases for foreigners in the Philippines |
+| cases-foreigner   | List of cases for foreigners in the Philippines |
 | facility          | Count cases by health facilities |
 | age_group         | Count cases by age group |
 | count             | Count number of tests conducted, confirmed, recovered, deaths, PUMs, PUIs |
