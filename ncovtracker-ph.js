@@ -1,5 +1,5 @@
 /*
-Copyright 2020 SHARKE Tecnhologies. Licensed under The MIT License. http://opensource.org/licenses/MIT 
+Copyright 2020 SHARKE Technologies. Licensed under The MIT License. http://opensource.org/licenses/MIT 
 Contributors:  Ariel De Castro <ariel.decastro@sharke.tech> 
 */
 
