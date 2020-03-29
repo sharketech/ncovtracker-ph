@@ -11,7 +11,7 @@ const client = new NcovTrackerPH.RestClient();
 (async () => {
 
     // get last update date/time
-    await client.request('last_updated')
+    await client.request('nCoV_dashboard_time_stamp')
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 

@@ -26,8 +26,8 @@ const endpoints = {
         defaults: {
             orderByFields: `sequ desc`,
         },
-        stats : {
-            "count_by_residence" : {
+        stats: {
+            "count_by_residence": {
                 groupByFieldsForStatistics: `residence`,
                 outStatistics: `[{"statisticType":"count","onStatisticField":"FID","outStatisticFieldName":"value"}]`,
                 orderByFields: `value desc`,
@@ -35,17 +35,17 @@ const endpoints = {
         }
     },
 
-    "cases-overseas" : {
+    "cases-overseas": {
         endpoint: `/OF_masterlist/FeatureServer/0/query`,
         defaults: {
             orderByFields: `num desc`,
         }
     },
 
-    "cases-foreigner" : {
+    "cases-foreigner": {
         endpoint: `/FN_masterlist/FeatureServer/0/query`,
         defaults: {
-            orderByFields:`FID desc`,
+            orderByFields: `FID desc`,
         }
     },
 
@@ -58,7 +58,7 @@ const endpoints = {
 
     "age_group": {
         endpoint: `/age_group/FeatureServer/0/query`,
-        defaults: { },
+        defaults: {},
         stats: {
             "count_by_age_group": {
                 groupByFieldsForStatistics: `age_categ,sex`,
@@ -66,27 +66,85 @@ const endpoints = {
             }
         }
     },
-    
-    "count" : {
+
+    "count": {
         endpoint: `/slide_fig/FeatureServer/0/query`,
-        defaults: { },
+        defaults: {},
     },
 
-    "trend" : {
+    "trend": {
         endpoint: `/confirmed/FeatureServer/0/query`,
         defaults: {
             orderByFields: `date asc`,
         }
     },
 
-    "last_updated" : {
+    "PUI_fac_tracing": {
+        endpoint: `/PUI_fac_tracing/FeatureServer/0/query`,
+    },
+
+    "hosplevel12018": {
+        endpoint: `/hosplevel12018/FeatureServer/0/query`,
+    },
+
+    "hosplevel22018": {
+        endpoint: `/hosplevel22018/FeatureServer/0/query`,
+    },
+
+    "hosplevel32018": {
+        endpoint: `/hosplevel32018/FeatureServer/0/query`,
+    },
+
+    "PUI_graph": {
+        endpoint: `/PUI_graph/FeatureServer/0/query`,
+    },
+
+    "commodities": {
+        endpoint: `/commodities/FeatureServer/0/query`,
+    },
+
+    /*
+    https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/nCoV_dashboard_time_stamp/FeatureServer/0?f=json
+    https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/Historic_adm0_v3/FeatureServer/0?f=json
+    https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/Cases_by_country_pt_V3/FeatureServer/0?f=json
+    https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/COVID_19_CasesByAdm1(pt)_VIEW/FeatureServer/0?f=json
+    https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/COVID_19_CasesByCountry(pt)_VIEW/FeatureServer/0?f=json
+    https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/COVID_19_CasesByCountry(pl)_VIEW/FeatureServer/0?f=json
+    */
+
+    "nCoV_dashboard_time_stamp": {
         url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
         endpoint: `/nCoV_dashboard_time_stamp/FeatureServer/0/query`,
         defaults: {
             resultOffset: 0,
             resultRecordCount: 1,
         }
-    }
+    },
+
+    "Historic_adm0_v3": {
+        url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
+        endpoint: `/Historic_adm0_v3/FeatureServer/0/query`,
+    },
+
+    "Cases_by_country_pt_V3": {
+        url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
+        endpoint: `/Cases_by_country_pt_V3/FeatureServer/0/query`,
+    },
+
+    "COVID_19_CasesByAdm1(pt)_VIEW": {
+        url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
+        endpoint: `/COVID_19_CasesByAdm1(pt)_VIEW/FeatureServer/0/query`,
+    },
+
+    "COVID_19_CasesByCountry(pt)_VIEW": {
+        url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
+        endpoint: `/COVID_19_CasesByCountry(pt)_VIEW/FeatureServer/0/query`,
+    },
+
+    "COVID_19_CasesByCountry(pl)_VIEW": {
+        url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
+        endpoint: `/COVID_19_CasesByCountry(pl)_VIEW/FeatureServer/0/query`,
+    },
 
 };
 
@@ -107,42 +165,42 @@ class RestClient {
         });
     }
 
-    request( endpoint, params= {}, method = 'GET') {
+    request(endpoint, params = {}, method = 'GET') {
 
-        return new Promise( (resolve, reject) => {
+        return new Promise((resolve, reject) => {
 
             let url = this._url;
             let req = endpoints[endpoint];
             let args = { ...defaultRequestParams };
 
-            if(!req) {
+            if (!req) {
                 reject('endpoint not found');
                 return;
             }
 
-            if(req.url) {
+            if (req.url) {
                 url = req.url;
             }
 
-            if(req.defaults) {
-                for( var key in req.defaults) {
+            if (req.defaults) {
+                for (var key in req.defaults) {
                     args[key] = req.defaults[key];
                 }
             }
 
-            if(params.stats && req.stats[params.stats]) {
+            if (params.stats && req.stats[params.stats]) {
                 let stats = req.stats[params.stats];
-                for( var key in stats) {
+                for (var key in stats) {
                     args[key] = stats[key];
                 }
             }
 
-            if(params.custom) {
-                for( var key in params.custom) {
+            if (params.custom) {
+                for (var key in params.custom) {
                     args[key] = params.custom[key];
                 }
             }
-            
+
             Request({
                 url: url + req.endpoint,
                 method: method,
@@ -151,9 +209,9 @@ class RestClient {
                 json: true,
             }, (e, res, body) => {
 
-                if(e) {
+                if (e) {
                     reject(e);
-                    throw(e);
+                    throw (e);
                 }
 
                 resolve(body);
@@ -162,7 +220,7 @@ class RestClient {
     }
 }
 
-module.exports = { 
+module.exports = {
     RestClient: RestClient,
     SocketClient: SocketClient
 };
