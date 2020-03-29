@@ -21,7 +21,23 @@ const defaultRequestParams = {
 
 const endpoints = {
 
-    "cases": {
+    /*
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/PH_masterlist/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/OF_masterlist/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/FN_masterlist/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/hosplevel12018/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/hosplevel22018/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/hosplevel32018/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/conf_fac_tracking/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/PUI_fac_tracing/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/age_group/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/confirmed/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/slide_fig/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/PUI_graph/FeatureServer/0?f=json
+   https://services5.arcgis.com/mnYJ21GiFTR97WFg/arcgis/rest/services/commodities/FeatureServer/0?f=json
+    */
+
+    "PH_masterlist": {
         endpoint: `/PH_masterlist/FeatureServer/0/query`,
         defaults: {
             orderByFields: `sequ desc`,
@@ -35,21 +51,21 @@ const endpoints = {
         }
     },
 
-    "cases-overseas": {
+    "OF_masterlist": {
         endpoint: `/OF_masterlist/FeatureServer/0/query`,
         defaults: {
             orderByFields: `num desc`,
         }
     },
 
-    "cases-foreigner": {
+    "FN_masterlist": {
         endpoint: `/FN_masterlist/FeatureServer/0/query`,
         defaults: {
             orderByFields: `FID desc`,
         }
     },
 
-    "facility": {
+    "conf_fac_tracking": {
         endpoint: `/conf_fac_tracking/FeatureServer/0/query`,
         defaults: {
             orderByFields: `ObjectId asc`,
@@ -67,12 +83,12 @@ const endpoints = {
         }
     },
 
-    "count": {
+    "slide_fig": {
         endpoint: `/slide_fig/FeatureServer/0/query`,
         defaults: {},
     },
 
-    "trend": {
+    "confirmed": {
         endpoint: `/confirmed/FeatureServer/0/query`,
         defaults: {
             orderByFields: `date asc`,
@@ -102,6 +118,7 @@ const endpoints = {
     "commodities": {
         endpoint: `/commodities/FeatureServer/0/query`,
     },
+
 
     /*
     https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services/nCoV_dashboard_time_stamp/FeatureServer/0?f=json

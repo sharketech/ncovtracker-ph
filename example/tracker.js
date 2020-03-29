@@ -16,12 +16,12 @@ const client = new NcovTrackerPH.RestClient();
         .catch(err => console.error(err));
 
     // get number of tests|confirmed|PUMs|PUIs|recovered|deaths
-    await client.request('count')
+    await client.request('slide_fig')
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
     // get number of confirmed cases
-    await client.request('count', {
+    await client.request('slide_fig', {
         custom: {
             outStatistics: `[{"statisticType":"sum","onStatisticField":"confirmed","outStatisticFieldName":"value"}]`,
             resultOffset: '',
@@ -32,7 +32,7 @@ const client = new NcovTrackerPH.RestClient();
         .catch(err => console.error(err));
 
     // list of cases in the Philippines
-    await client.request('cases', {
+    await client.request('PH_masterlist', {
         custom: {
             resultOffset: 0,
             resultRecordCount: 1000,
@@ -42,17 +42,17 @@ const client = new NcovTrackerPH.RestClient();
         .catch(err => console.error(err));
 
     // list of cases for Filipino in other countries
-    await client.request('cases-overseas')
+    await client.request('OF_masterlist')
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
     // list of cases for foreigners in the Philippines
-    await client.request('cases-foreigner')
+    await client.request('FN_masterlist')
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
     // count cases by residence
-    await client.request('cases', { stats: "count_by_residence" })
+    await client.request('PH_masterlist', { stats: "count_by_residence" })
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
@@ -62,12 +62,12 @@ const client = new NcovTrackerPH.RestClient();
         .catch(err => console.error(err));
 
     // count cases by health facility
-    await client.request('facility')
+    await client.request('conf_fac_tracking')
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
     // get trend
-    await client.request('trend')
+    await client.request('confirmed')
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
