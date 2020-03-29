@@ -71,6 +71,36 @@ const client = new NcovTrackerPH.RestClient();
         .then(res => console.log(res.features))
         .catch(err => console.error(err));
 
+    // PUI facility tracing
+    await client.request('PUI_fac_tracing')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
+    // hospitals
+    await client.request('hosplevel12018')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
+    // hospitals
+    await client.request('hosplevel22018')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
+    // hospitals
+    await client.request('hosplevel32018')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
+    // PUI graph
+    await client.request('PUI_graph')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
+    // Commodities
+    await client.request('commodities')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
 })();
 
 
