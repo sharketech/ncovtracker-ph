@@ -25,16 +25,21 @@ $ npm run test
 
 # List of endpoints
 
-| Endpoint          | Description  |
-| ------------------| ------------ |
-| cases             | List of cases in the Philippines |
-| cases-overseas    | List of cases for Filipino in other countries |
-| cases-foreigner   | List of cases for foreigners in the Philippines |
-| facility          | Count cases by health facilities |
-| age_group         | Count cases by age group |
-| count             | Count number of tests conducted, confirmed, recovered, deaths, PUMs, PUIs |
-| trend             | Get trend |
-| last_updated      | Get date/time since last update |
+| Endpoint                  | Description  |
+| ------------------------- | ------------ |
+| PH_masterlist             | List of cases in the Philippines |
+| OF_masterlist             | List of cases for Filipino in other countries |
+| FN_masterlist             | List of cases for foreigners in the Philippines |
+| conf_fac_tracking         | Count cases by health facilities |
+| age_group                 | Count cases by age group |
+| slide_fig                 | Count number of tests conducted, confirmed, recovered, deaths, PUMs, PUIs |
+| confirmed                 | Get trend |
+| nCoV_dashboard_time_stamp         | Get date/time since last update |
+| Historic_adm0_v3                  | History |
+| Cases_by_country_pt_V3            | Cases by country |
+| COVID_19_CasesByAdm1(pt)_VIEW     | Cases by country |
+| COVID_19_CasesByCountry(pt)_VIEW  | Cases by country |
+| COVID_19_CasesByCountry(pl)_VIEW  | Cases by country |
 
 
 # Examples
