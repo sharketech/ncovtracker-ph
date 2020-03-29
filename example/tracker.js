@@ -10,6 +10,11 @@ const client = new NcovTrackerPH.RestClient();
 
 (async () => {
 
+    // get last update date/time
+    await client.request('last_updated')
+        .then(res => console.log(res.features))
+        .catch(err => console.error(err));
+
     // get number of tests|confirmed|PUMs|PUIs|recovered|deaths
     await client.request('count')
         .then(res => console.log(res.features))

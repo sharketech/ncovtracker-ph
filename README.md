@@ -34,6 +34,7 @@ $ npm run test
 | age_group         | Count cases by age group |
 | count             | Count number of tests conducted, confirmed, recovered, deaths, PUMs, PUIs |
 | trend             | Get trend |
+| last_updated      | Get date/time since last update |
 
 
 # Examples
