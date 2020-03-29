@@ -83,14 +83,8 @@ const endpoints = {
         url: `https://services.arcgis.com/5T5nSi527N4F7luB/arcgis/rest/services`,
         endpoint: `/nCoV_dashboard_time_stamp/FeatureServer/0/query`,
         defaults: {
-            f: `json`,
-            where: `1=1`,
-            returnGeometry: false,
-            spatialRel: `esriSpatialRelIntersects`,
-            outFields: `*`,
             resultOffset: 0,
             resultRecordCount: 1,
-            cacheHint: true
         }
     }
 
