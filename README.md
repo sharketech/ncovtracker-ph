@@ -50,7 +50,7 @@ $ npm run test
     const NcovTrackerPH = require('./ncovtracker-ph');
     const client = new NcovTrackerPH.RestClient();
 
-    client.request('count')
+    client.request('slide_fig')
         .then(res => console.log(res))
         .catch(err => console.error(err));
 
@@ -59,7 +59,7 @@ $ npm run test
 
     (async  () => {
         try {
-            res = await client.request('cases');
+            res = await client.request('PH_masterlist');
             console.log(res);
         }
         catch(e) {
@@ -70,14 +70,14 @@ $ npm run test
 
 ## Using preset statistics.
 
-    request('cases', {
+    request('PH_masterlist', {
         stats: "count_by_residence"
     })
 
 
 ## Using custom query.
 
-    request('count', { 
+    request('slide_fig', { 
         custom: {
             outStatistics: `[{"statisticType":"sum","onStatisticField":"confirmed","outStatisticFieldName":"value"}]`,
             resultOffset: '',
